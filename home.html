@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Shelf Flip Effect</title>
+<link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+
+
+  <div class="record_png">
+    <img src="Photos/pngwing.com.png">
+  </div>
+
+ <div class="RotateZone">
+  <div class="shelf">
+   <div class="front_side"></div>
+   <div class="left_side"></div>
+   <div class="bottom_side"></div>
+
+    <div class="record" onclick="flipRecord(this)">
+      <div class="record-front">
+        <img src="https://upload.wikimedia.org/wikipedia/ru/b/b8/Limp_Bizkit_Significant_Other.jpg">
+      </div>
+    </div>
+   
+
+    <div class="record" onclick="flipRecord(this)">
+      <div class="record-front">
+        <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/1/12/CSatHFW_Limp_Bizkit%E2%80%99s.jpg/274px-CSatHFW_Limp_Bizkit%E2%80%99s.jpg">
+      </div>
+    </div>
+
+    
+    <div class="record" onclick="flipRecord(this)">
+      <div class="record-front">
+        <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/d/db/Limp_Bizkit_%E2%80%94_Still_Sucks_Cover.jpg/274px-Limp_Bizkit_%E2%80%94_Still_Sucks_Cover.jpg"> 
+      </div>
+    </div>
+
+    
+    <div class="record" onclick="flipRecord(this)">
+      <div class="record-front">
+        <img src="https://upload.wikimedia.org/wikipedia/ru/7/7d/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%D0%B0_Limp_Bizkit_Results_May_Vary.jpg">
+      </div>
+    </div>
+
+    <div class="back_side"></div>
+  </div>
+</div>
+
+
+
+<script>
+  function flipRecord(record) {
+    record.classList.toggle('flipped');
+  }
+  let isDragging = false;
+  let startX, startY;
+  let currentX, currentY;
+  let startTransform;
+  let scale = 1;
+
+  const shelf = document.querySelector('.shelf');
+  const zone = document.querySelector('.RotateZone');
+
+  zone.addEventListener('mousedown', startDrag);
+  zone.addEventListener('mousemove', drag);
+  zone.addEventListener('mouseup', endDrag);
+  zone.addEventListener('mouseleave', endDrag);
+  zone.addEventListener('wheel', handleWheel);
+
+  function startDrag(e) {
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    startTransform = shelf.style.transform;
+  }
+
+  function drag(e) {
+    if (!isDragging) return;
+    currentX = e.clientX;
+    currentY = e.clientY;
+    const dx = currentX - startX;
+    const dy = currentY - startY;
+    const rotateY = dx * 0.6; // коэффициент скорости вращения
+    const rotateX = dy * 0.6; // коэффициент скорости вращения
+    shelf.style.transform = startTransform + ` rotateY(${rotateY}deg) rotateX(${-rotateX}deg)`;
+  }
+
+  function endDrag() {
+    isDragging = false;
+    startX = null;
+    startY = null;
+    startTransform = null;
+  }
+
+  function handleWheel(e) {
+  e.preventDefault(); // Предотвращаем прокрутку страницы
+  const delta = e.deltaY; // Изменение масштаба
+  const zoomSpeed = 0.001; // Скорость приближения/отдаления
+  scale += delta * zoomSpeed * -1; // Изменяем масштаб в зависимости от направления прокрутки
+  scale = Math.max(0.1, Math.min(scale, 5)); // Ограничиваем масштаб
+  shelf.style.transform = `scale(${scale})`; // Применяем новый масштаб
+}
+</script>
+
+</body>
+</html>

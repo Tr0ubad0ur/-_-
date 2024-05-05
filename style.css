@@ -1,0 +1,120 @@
+body {
+    
+    perspective: 1000px;
+    background-color: #963032;
+    
+  }
+/* hello */
+  .RotateZone{
+    display: flex;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    perspective: 1000px;
+    border: 3px solid #212f3b;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .shelf {
+    display: flex;
+    position: relative;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    transition: transform 0.2s;
+    transform: rotateY(-35deg);
+    
+  }
+
+  .front_side{
+    border: 3px solid #212f3b;
+    border-top-right-radius: 10px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #314455;
+    transform: translateZ(100px) ;
+    bottom: 0;
+  }
+
+  .back_side{
+    border: 3px solid #212f3b;
+    border-top-right-radius: 10px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #314455;
+    transform: translateZ(-100px) ;
+    bottom: 0;
+  }
+
+  .left_side{
+    border: 3px solid #212f3b;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    position: absolute;
+    width: 200px;
+    height: 120px;
+    background-color: #314455;
+    transform: rotateY(-90deg) translateZ(103px);
+    bottom: 0;
+  }
+
+  .bottom_side{
+    border: 3px solid #212f3b;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    width: 150px;
+    height: 200px;
+    background-color: #314455;
+    transform: rotateX(-90deg) translateZ(103px);
+    bottom: 0;
+  }
+
+  .record {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    bottom: 0;
+    background-color: #000000;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    transform: rotateX(20deg);
+    cursor: pointer;
+    transform-origin: 50% 100%; /* Установить центр вращения внизу пластинки */
+  }
+
+  .record.flipped {
+    transform: rotateX(-20deg); /* Повернуть пластинку на 180 градусов вокруг оси Y */
+  }
+
+  .record-front {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    backface-visibility: hidden;
+    background-color: #000000;
+    /*transform: rotateX(45deg); /* Повернуть обратную сторону пластинки на 180 градусов вокруг оси Y */
+  }
+
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .record_png {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+    width: 500px;
+    margin-left: -270px;
+    margin-top: -25px;
+  }
