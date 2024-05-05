@@ -5,14 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Music Shelf Flip Effect</title>
 <link rel = "stylesheet" href = "style.css">
+<link href="https://fonts.googleapis.com/css2?family=Emberly:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+  <header>
+    
+  </header>
 
   <div class="record_png">
     <img src="Photos/pngwing.com.png">
   </div>
 
+  <div class="full-container">
+  
+
+  <div class="logo">
+    <img src="Photos/logo_transparent.png">
+  </div>
+
+  <div class="buttons-more">
+    <a href="#" class="button">Больше пластинок</a>
+    <a href="#" class="button">Сразу очень много пластинок!</a>
+  </div>
+<!--
  <div class="RotateZone">
   <div class="shelf">
    <div class="front_side"></div>
@@ -49,8 +64,8 @@
     <div class="back_side"></div>
   </div>
 </div>
-
-
+-->
+</div>
 
 <script>
   function flipRecord(record) {
@@ -84,8 +99,8 @@
     currentY = e.clientY;
     const dx = currentX - startX;
     const dy = currentY - startY;
-    const rotateY = dx * 0.6; // коэффициент скорости вращения
-    const rotateX = dy * 0.6; // коэффициент скорости вращения
+    const rotateY = dx * 0.8; // коэффициент скорости вращения
+    const rotateX = dy * 0.8; // коэффициент скорости вращения
     shelf.style.transform = startTransform + ` rotateY(${rotateY}deg) rotateX(${-rotateX}deg)`;
   }
 
