@@ -1,9 +1,12 @@
 body {
+    display: flex;
     perspective: 1000px;
-    background-color: #963032;
     /*border: 1px solid #ffffff;*/
-    height: 100vh;
+    height: 400vh;
     margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #E3E2DF;
   }
 
   .RotateZone{
@@ -112,35 +115,18 @@ body {
     height: 100%;
   }
 
-  .record_png {
-    position: absolute;
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-  }
+  
 
   .logo{
-    height: 100px;
-    width: 400px;
-    /*border: 1px solid #fff;*/
-    
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-color: #5D001E;
+    margin-top: 25vh;
   }
-  header{
-   /* border: 1px solid #fff;*/
-    height: 1%;
-  }
+  
 
-  .full-container{
-   /* border: 1px solid #fff;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    perspective: 1000px;
-    width: 100%;
-    height: 99%;
-  }
+
 
   .button-more{
     /*border: 1px solid #fff;*/
@@ -154,9 +140,9 @@ body {
 
   .button{
     border-radius: 10rem;
-    color: #963032;
+    color: #E3E2DF;
     text-decoration: none;
-    background-color: #314455;
+    background-color: #9A1750;
     padding: .5rem 0.75rem;
     font-family: 'Emberly', sans-serif;
     position: relative; 
@@ -171,7 +157,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: #212f3b; 
+    background-color: #5D001E; 
     transition: all 0.3s; 
     z-index: -1;
   }
@@ -180,4 +166,35 @@ body {
     left: 0; /* Сдвигаем фоновый элемент вправо */
   }
   
-/*ЛЫСЫЙ СОСАЛ*/
+  .left-side {
+    background-color: #E3E2DF; /* Цвет слева */
+    width: 65vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    perspective: 1000px;
+  }
+
+  .right-side {
+    display: flex;
+    background-color: #5D001E; /* Цвет справа */
+    width: 35vw;
+    justify-content: center;
+  }
+
+
+  .girl-photo img{
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    opacity: 35%;
+  }
+
+  .full-container{
+    display: flex;
+    width: 90vw;
+    height: 400vh;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 1);
+    margin-top: 5%;
+    
+  }
