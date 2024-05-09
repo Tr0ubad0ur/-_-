@@ -166,19 +166,21 @@ body {
     left: 0; /* Сдвигаем фоновый элемент вправо */
   }
   
-  .left-side {
+  .left-side-home {
     background-color: #E3E2DF; /* Цвет слева */
     width: 65vw;
+    height: 95vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     perspective: 1000px;
   }
 
-  .right-side {
+  .right-side-home {
     display: flex;
     background-color: #5D001E; /* Цвет справа */
     width: 35vw;
+    height: 95vh;
     justify-content: center;
   }
 
@@ -192,9 +194,38 @@ body {
 
   .full-container{
     display: flex;
+    flex-direction: column;
     width: 90vw;
     height: 400vh;
     box-shadow: 0 0 80px rgba(0, 0, 0, 1);
     margin-top: 5%;
-    
+  }
+
+  .home-container{
+    display: flex;
+    width: 90vw;
+    height: 95vh;
+  }
+
+  .best-sellers-container{
+    display: flex;
+    width: 90vw;
+    height: 100vh;
+  }
+
+  .left-side-best-sellers {
+    background-color: #5D001E; /* Цвет слева */
+    width: 59vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    perspective: 1000px;
+  }
+
+  .right-side-sellers {
+    display: flex;
+    background-color: #E3E2DF; /* Цвет справа */
+    width: 41vw;
+    height: 100vh;
+    justify-content: center;
   }
