@@ -113,7 +113,6 @@ body {
     text-decoration: none;
     background-color: #5D001E;
     padding: .5rem 0.75rem;
-    font-family: 'Emberly', sans-serif;
     position: relative; 
     overflow: hidden; 
     z-index: 1;
@@ -126,7 +125,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: #9A1750; 
+    background-color: #000000; 
     transition: all 0.3s; 
     z-index: -1;
   }
@@ -143,6 +142,23 @@ body {
     align-items: center;
     flex-direction: column;
     perspective: 1000px;
+    z-index: 2;
+  }
+
+  .menu{
+    position: absolute;
+    border: 1px solid #000000;
+    height: 95vh;
+    width: 58.5vw;
+  }
+
+  .menu img{
+    position: absolute;
+    height: 90vh;
+    width: 50vw;
+    left: 12vw;
+    top: 3vh;
+    z-index: 1;
   }
 
   .right-side-home {
@@ -151,6 +167,7 @@ body {
     width: 35vw;
     height: 95vh;
     justify-content: center;
+    z-index: 0;
   }
 
 
