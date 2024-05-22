@@ -202,7 +202,7 @@ body {
   .left-side-best-sellers {
     background-color: #5D001E; /* Цвет слева */
     width: 59vw;
-    height: 100vh;/* Цвет слева */
+    height: 100vh;
     display: flex;
     align-items: center;
     perspective: 1000px;
