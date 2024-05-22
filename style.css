@@ -211,7 +211,7 @@ body {
   .right-side-sellers {
     display: flex;
     background-color: #E3E2DF; /* Цвет справа */
-    width: 41vw;
+    width: 41vw;/* Цвет справа */
     height: 100vh;
     justify-content: center;
   }
