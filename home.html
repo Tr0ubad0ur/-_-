@@ -22,20 +22,30 @@
     </div>
 
     <div class="button-more">
-      <a href="#" class="button">Больше пластинок</a>
+      <a href="#" class="buttons button">Больше пластинок</a>
     </div>
-    
-    
-
   </div>
-  <div class="menu">
+
+  <a href="#" class="moveMenuButton" id="mMB"><img src="Photos/arrow (1).png"></a>
+
+  <div class="menu" id="M">
     <img src="Photos/pngwing.com__2_-removebg-preview.png">
-    <a href="#" class="menu-btn">
-    </a>
     <ul class="nav">
-      <li><a href="#">Дом</a></li>
-      <li><a href="#">Хиты продаж</a></li>
+      <li><a href="#" class="buttons RegBut" id="PopUpReg">Регистрация</a></li>
+      <li><a href="#"class="buttons HitBut" >Хиты продаж</a></li>
+      <li><a href="#" class="buttons NewBut" >Новинки</a></li>
+      <li><a href="#"class="buttons ShopBut" >Магазин</a></li>
+      <li><a href="#" class="buttons CartBut" >Корзина</a></li>
+      <li><a href="#"class="buttons AboutBut" >О нас</a></li>
     </ul>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <h2>Регистрация</h2>
+      <!-- Здесь могут быть любые элементы формы -->
+    </div>
   </div>
 
   <div class="right-side-home">
@@ -50,39 +60,6 @@
 
  <div class="best-sellers-container">
   <div class="left-side-best-sellers"> 
-    <h1>Хиты продаж</h1>
-
-    <div class="RotateZone">
-      <div class="shelf">
-        <div class="record" onclick="flipRecord(this)">
-          <div class="record-front">
-            <img src="https://upload.wikimedia.org/wikipedia/ru/b/b8/Limp_Bizkit_Significant_Other.jpg">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="RotateZone">
-      <div class="shelf">
-        <div class="record" onclick="flipRecord(this)">
-          <div class="record-front">
-            <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/1/12/CSatHFW_Limp_Bizkit%E2%80%99s.jpg/274px-CSatHFW_Limp_Bizkit%E2%80%99s.jpg">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="RotateZone">
-      <div class="shelf">
-        <div class="record" onclick="flipRecord(this)">
-          <div class="record-front">
-            <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/d/db/Limp_Bizkit_%E2%80%94_Still_Sucks_Cover.jpg/274px-Limp_Bizkit_%E2%80%94_Still_Sucks_Cover.jpg">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <h1>Релизы</h1>
   </div>
 
   <div class="right-side-best-sellers">
@@ -96,57 +73,38 @@
 </div>
 
 <script>
-  function flipRecord(record) {
-    record.classList.toggle('flipped');
-  }
-  let isDragging = false;
-  let startX, startY;
-  let currentX, currentY;
-  let startTransform;
-  let scale = 1;
 
-  const shelf = document.querySelector('.shelf');
-  const zone = document.querySelector('.RotateZone');
+document.getElementById('mMB').addEventListener('click', function() {
+  var menu = document.getElementById('M');
+  var arrow = document.getElementById('mMB');
+  menu.classList.toggle('open');
+  arrow.classList.toggle('open');
+});
 
-  zone.addEventListener('mousedown', startDrag);
-  zone.addEventListener('mousemove', drag);
-  zone.addEventListener('mouseup', endDrag);
-  zone.addEventListener('mouseleave', endDrag);
-  zone.addEventListener('wheel', handleWheel);
 
-  function startDrag(e) {
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    startTransform = shelf.style.transform;
-  }
+var popup = document.getElementById("popup");
+var closeBtn = popup.querySelector(".close");
 
-  function drag(e) {
-    if (!isDragging) return;
-    currentX = e.clientX;
-    currentY = e.clientY;
-    const dx = currentX - startX;
-    const dy = currentY - startY;
-    const rotateY = dx * 0.8; // коэффициент скорости вращения
-    const rotateX = dy * 0.8; // коэффициент скорости вращения
-    shelf.style.transform = startTransform + ` rotateY(${rotateY}deg) rotateX(${-rotateX}deg)`;
-  }
 
-  function endDrag() {
-    isDragging = false;
-    startX = null;
-    startY = null;
-    startTransform = null;
-  }
-
-  function handleWheel(e) {
-  e.preventDefault(); // Предотвращаем прокрутку страницы
-  const delta = e.deltaY; // Изменение масштаба
-  const zoomSpeed = 0.001; // Скорость приближения/отдаления
-  scale += delta * zoomSpeed * -1; // Изменяем масштаб в зависимости от направления прокрутки
-  scale = Math.max(0.1, Math.min(scale, 5)); // Ограничиваем масштаб
-  shelf.style.transform = `scale(${scale})`; // Применяем новый масштаб
+function openPopup() {
+  popup.style.display = "block";
 }
+
+function closePopup() {
+  popup.style.display = "none";
+}
+
+
+document.getElementById("PopUpReg").addEventListener("click", openPopup);
+closeBtn.addEventListener("click", closePopup);
+
+
+window.addEventListener("click", function(event) {
+  if (event.target == popup) {
+    closePopup();
+  }
+});
+
 </script>
 
 </body>

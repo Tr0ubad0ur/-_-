@@ -8,69 +8,6 @@ body {
     align-items: center;
     background-color: #E7DBCB;
   }
-
-  .RotateZone{
-    display: flex;
-    position: relative;
-    width: 250px;
-    height: 250px;
-    perspective: 1000px;
-    border: 3px solid #212f3b;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
-  }
-
-  .shelf {
-    display: flex;
-    position: relative;
-    margin: auto;
-    width: 100px;
-    height: 100px;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transform-origin: center;
-    transition: transform 0.2s;
-    transform: rotateY(-35deg);
-   
-    
-  }
-
-  .record {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    bottom: 0;
-    background-color: #000000;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    transform: rotateX(20deg);
-    cursor: pointer;
-    transform-origin: 50% 100%; /* Установить центр вращения внизу пластинки */
-  }
-
-  .record.flipped {
-    transform: rotateX(-20deg); /* Повернуть пластинку на 180 градусов вокруг оси Y */
-  }
-
-  .record-front {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    backface-visibility: hidden;
-    background-color: #000000;
-    /*transform: rotateX(45deg); /* Повернуть обратную сторону пластинки на 180 градусов вокруг оси Y */
-  }
-
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
-  
-
   .logo{
     display: flex;
     justify-content: center;
@@ -87,11 +24,7 @@ body {
     width: 290px;
   }
   
-
-
-
   .button-more{
-    /*border: 1px solid #fff;*/
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -107,7 +40,7 @@ body {
     font-weight: 900;
   }
 
-  .button{
+  .buttons{
     border-radius: 10rem;
     color: #E3E2DF;
     text-decoration: none;
@@ -147,9 +80,9 @@ body {
 
   .menu{
     position: absolute;
-    border: 1px solid #000000;
     height: 95vh;
     width: 58.5vw;
+    z-index: 1;
   }
 
   .menu img{
@@ -160,6 +93,25 @@ body {
     top: 3vh;
     z-index: 1;
   }
+
+  .nav{
+    position: absolute;
+    top: 20vh;
+    right: 0;
+    z-index: 2;
+  }
+
+  .nav li{
+    margin-top: 5vh;
+    list-style-type: none;
+  }
+
+  .nav a{
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: x-large;
+    font-weight: 900;
+  }
+
 
   .right-side-home {
     display: flex;
@@ -215,3 +167,61 @@ body {
     height: 100vh;
     justify-content: center;
   }
+  #M, #mMB{
+    transition: transform 1s;
+  }
+
+  #mMB{
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 47vh;
+    right: 32.5vw;
+    z-index: 3;
+  }
+
+  #M.open {
+    transform: translateX(10vw);
+    
+  }
+  #mMB.open{
+    transform: translateX(10vw) rotateZ(180deg);
+  }
+
+  /* Скрываем попап по умолчанию */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Контент внутри попапа */
+.popup-content {
+  font-family: "PT Sans Narrow", sans-serif;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  width: 25vw;
+  height: 40vh;
+}
+
+/* Кнопка закрытия */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
