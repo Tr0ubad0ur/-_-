@@ -225,3 +225,16 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #E7DBCB;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #5D001E;
+  border-radius: 4px;
+}

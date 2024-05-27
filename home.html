@@ -31,19 +31,56 @@
   <div class="menu" id="M">
     <img src="Photos/pngwing.com__2_-removebg-preview.png">
     <ul class="nav">
-      <li><a href="#" class="buttons RegBut" id="PopUpReg">Регистрация</a></li>
+      <li><a href="#" class="buttons RegBut open-popup" data-popup="popupR" id="PopUpReg">Регистрация</a></li>
       <li><a href="#"class="buttons HitBut" >Хиты продаж</a></li>
       <li><a href="#" class="buttons NewBut" >Новинки</a></li>
       <li><a href="#"class="buttons ShopBut" >Магазин</a></li>
-      <li><a href="#" class="buttons CartBut" >Корзина</a></li>
+      <li><a href="#" class="buttons CartBut open-popup" data-popup="popupK">Корзина</a></li>
       <li><a href="#"class="buttons AboutBut" >О нас</a></li>
     </ul>
   </div>
 
-  <div class="popup" id="popup">
+  <div class="popup" id="popupR">
     <div class="popup-content">
       <span class="close">&times;</span>
       <h2>Регистрация</h2>
+      <form action="/register" method="post">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+      
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+      
+        <label for="email">Почта:</label>
+        <input type="email" id="email" name="email" required>
+      
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+      <p>Уже есть аккаунт?</p>
+      <a href="#" class="buttons EntrBut open-popup" data-popup="popupEntr" id="PopUpEntr">Войти</a>
+    </div>
+  </div>
+
+  <div class="popup" id="popupEntr">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <h2>Вход</h2>
+      <form action="/login" method="post">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+      
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+      
+        <button type="submit">Войти</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup" id="popupK">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <h2>Корзина</h2>
       <!-- Здесь могут быть любые элементы формы -->
     </div>
   </div>
@@ -82,28 +119,40 @@ document.getElementById('mMB').addEventListener('click', function() {
 });
 
 
-var popup = document.getElementById("popup");
-var closeBtn = popup.querySelector(".close");
+
+var openPopupButtons = document.querySelectorAll('.open-popup');
 
 
-function openPopup() {
-  popup.style.display = "block";
-}
-
-function closePopup() {
-  popup.style.display = "none";
-}
-
-
-document.getElementById("PopUpReg").addEventListener("click", openPopup);
-closeBtn.addEventListener("click", closePopup);
-
-
-window.addEventListener("click", function(event) {
-  if (event.target == popup) {
-    closePopup();
-  }
+openPopupButtons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    var popupId = this.getAttribute('data-popup');
+    openPopup(popupId);
+  });
 });
+
+
+function openPopup(id) {
+  var popup = document.getElementById(id);
+  if (popup) {
+    popup.style.display = 'block';
+    var closeBtn = popup.querySelector('.close');
+    closeBtn.addEventListener('click', function() {
+      closePopup(id);
+    });
+    window.addEventListener('click', function(event) {
+      if (event.target == popup) {
+        closePopup(id);
+      }
+    });
+  }
+}
+
+function closePopup(id) {
+  var popup = document.getElementById(id);
+  if (popup) {
+    popup.style.display = 'none';
+  }
+}
 
 </script>
 
