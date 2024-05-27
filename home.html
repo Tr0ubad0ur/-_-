@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
   
@@ -43,36 +44,53 @@
   <div class="popup" id="popupR">
     <div class="popup-content">
       <span class="close">&times;</span>
-      <h2>Регистрация</h2>
+      <h1>Регистрация</h1>
       <form action="/register" method="post">
-        <label for="username">Имя пользователя:</label>
-        <input type="text" id="username" name="username" required>
-      
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" required>
-      
-        <label for="email">Почта:</label>
-        <input type="email" id="email" name="email" required>
-      
-        <button type="submit">Зарегистрироваться</button>
+
+       <div class="input-box">
+        <input type="text" placeholder="Имя пользователя" id="username" name="username" required>
+        <i class='bx bx-user'></i>
+       </div>
+        <div class="input-box">
+        <input type="password" placeholder="Пароль" id="password" name="password" required>
+        <i class='bx bx-lock-alt' ></i>
+       </div>
+        <div class="input-box">
+        <input type="email" placeholder="Почта" id="email" name="email" required>
+        <i class='bx bx-envelope' ></i>
+       </div>
+
+       <div class="remember">
+        <label for=""> <input type="checkbox">Запомнить меня</label>
+       </div>
+        <button type="submit" class="btn subbtn">Зарегистрироваться</button>
       </form>
-      <p>Уже есть аккаунт?</p>
-      <a href="#" class="buttons EntrBut open-popup" data-popup="popupEntr" id="PopUpEntr">Войти</a>
+      
+      <p>Уже есть аккаунт? <a href="#" class="buttons EntrBut open-popup" data-popup="popupEntr" id="PopUpEntr">Войти</a></p>
+      
+ 
     </div>
   </div>
 
   <div class="popup" id="popupEntr">
     <div class="popup-content">
       <span class="close">&times;</span>
-      <h2>Вход</h2>
+      <h1>Вход</h1>
       <form action="/login" method="post">
-        <label for="username">Имя пользователя:</label>
-        <input type="text" id="username" name="username" required>
-      
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" required>
-      
-        <button type="submit">Войти</button>
+
+        <div class="input-box">
+        <input type="text" placeholder="Имя пользователя" id="username" name="username" required>
+        <i class='bx bx-user'></i>
+        </div>
+        <div class="input-box">
+        <input type="password" placeholder="Пароль" id="password" name="password" required>
+        <i class='bx bx-lock-alt' ></i>
+        </div>
+        <div class="remember">
+          <label for=""> <input type="checkbox">Запомнить меня</label>
+          <a href="#">Забыли пароль?</a>
+        </div>
+        <button type="submit" class="btn entrbtn">Войти</button>
       </form>
     </div>
   </div>
