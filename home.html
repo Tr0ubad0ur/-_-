@@ -99,7 +99,10 @@
     <div class="popup-content">
       <span class="close">&times;</span>
       <h2>Корзина</h2>
-      <!-- Здесь могут быть любые элементы формы -->
+      <div id="cart-items">
+        <!-- Здесь будут отображаться элементы корзины -->
+    </div>
+    <button id="checkout">Оформить заказ</button>
     </div>
   </div>
 
@@ -150,6 +153,11 @@ openPopupButtons.forEach(function(button) {
 
 
 function openPopup(id) {
+  var popups = document.querySelectorAll('.popup');
+  popups.forEach(function(popup) {
+    popup.style.display = 'none';
+  });
+
   var popup = document.getElementById(id);
   if (popup) {
     popup.style.display = 'block';
