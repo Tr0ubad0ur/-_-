@@ -1,0 +1,76 @@
+/* Карточки магазина */
+
+.list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 5px;
+  
+  }
+  
+  .list__top{
+  flex: 0 0 200px;
+  overflow: hidden;
+  }
+  
+  .list__img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .list__img > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .list__bottom{
+    display: flex;
+    justify-content: space-between;
+    flex: 1 0 auto;
+    padding: 5px 0px;
+  }
+  
+  .list__infol{
+    width: 70%;
+  }
+  
+  .list__infor{
+    width: 30%;
+  }
+  
+  .list__infor-price{
+    justify-content: right;
+    font-weight: 700;
+    font-size: 14px;
+    color: #E7DBCB;
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  
+  .list__infor-price::after{
+    content: "\20BD";
+    margin-left: 4px;
+  }
+  
+  .list__infol-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: #E7DBCB;
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  
+  .list__infol-song {
+    padding-top: 3px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #E7DBCB;
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+   
