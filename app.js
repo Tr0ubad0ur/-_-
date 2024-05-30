@@ -2,6 +2,34 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Pool } = require('pg');
+const Sequelize = require('sequelize');
+const config = require('./config.json');
+
+const sequelize = new Sequelize(config.database, config.username, config.password, {
+  host: config.host,
+  dialect: config.dialect
+});
+
+
+//const sequelize = new Sequelize('database', 'username', 'password', {
+ // host: 'localhost',
+  //dialect: 'postgres',
+  //database: 'postgres',
+  //password: '1',
+  //port: 5432,
+//});
+
+sequelize.authenticate()
+  .then(() => {
+    console.log('Соединение с базой данных установлено успешно.');
+  })
+  .catch(err => {
+    console.error('Ошибка при подключении к базе данных:', err);
+  });
+
+sequelize.authenticate()
+  .then(() => console.log('Connection has been established successfully.'))
+  .catch(err => console.error('Unable to connect to the database:', err));
 
 const app = express();
 app.use(bodyParser.json());
@@ -10,19 +38,13 @@ app.use(cors());
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'reg',
+  database: 'postgres',
   password: '1',
   port: 5432,
 });
 
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('database', 'username', 'password', {
-  host: 'localhost',
-  dialect: 'postgres',
-  database: 'reg',
-  password: '1',
-  port: 5432,
-});
+//const Sequelize = require('sequelize');
+
 
 const User = sequelize.define('user', {
   username: Sequelize.STRING,
@@ -49,8 +71,8 @@ app.get('/records', async (req, res) => {
     try {
       const client = await pool.connect();
       const result = await client.query(
-        'INSERT INTO records (name, genre, singer, year, company, type, id_cat) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-        [name, genre, singer, year, company, type, id_cat]
+        'INSERT INTO records (name_records, genre, singer, year_records, company, type_records, id_cat) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+        [name_records, genre, singer, year_records, company, type_records, id_cat]
       );
       res.json(result.rows[0]);
       client.release();
