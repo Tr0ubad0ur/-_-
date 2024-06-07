@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Music Shelf Flip Effect</title>
-<link rel = "stylesheet" href = "style.css">
-<link rel = "stylesheet" href = "bestlist.css">
+<link rel = "stylesheet" href = "./css/style.css">
+<link rel = "stylesheet" href = "./css/bestlist.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
@@ -37,75 +37,85 @@
       <li><a href="#"class="buttons HitBut" >Хиты продаж</a></li>
       <li><a href="#" class="buttons NewBut" >Новинки</a></li>
       <li><a href="#"class="buttons ShopBut" >Магазин</a></li>
-      <li><a href="#" class="buttons CartBut open-popup" data-popup="popupK">Корзина</a></li>
       <li><a href="#"class="buttons AboutBut" >О нас</a></li>
     </ul>
   </div>
 
-  <div class="popup" id="popupR">
-    <div class="popup-content">
+  <div class="popup " id="popupR">
+    <div class="popup-content Reg">
       <span class="close">&times;</span>
       <h1>Регистрация</h1>
-      <form action="/register" method="post">
+      <form id="registration-form">
 
        <div class="input-box">
-        <input type="text" placeholder="Имя пользователя" id="username" name="username" required>
+        <input type="text" placeholder="Имя" id="name" name="name" required>
         <i class='bx bx-user'></i>
        </div>
+
+       <div class="input-box">
+        <input type="text" placeholder="Фамилия" id="surname" name="surname" required>
+        <i class='bx bx-user'></i>
+       </div>
+
+       <div class="input-box">
+        <input type="text" placeholder="Отчество" id="middlename" name="middlename" required>
+        <i class='bx bx-user'></i>
+       </div>
+
+       <div class="input-box">
+        <input type="text" placeholder="Почта" id="mail" name="mail" required>
+        <i class='bx bx-envelope' ></i>
+       </div>
+
         <div class="input-box">
         <input type="password" placeholder="Пароль" id="password" name="password" required>
         <i class='bx bx-lock-alt' ></i>
        </div>
-        <div class="input-box">
-        <input type="email" placeholder="Почта" id="email" name="email" required>
-        <i class='bx bx-envelope' ></i>
+
+       <div class="input-box">
+        <input type="text" placeholder="Пол" id="male" name="male" required>
+       </div>
+        
+       <div class="input-box">
+        <input type="text" placeholder="Возраст" id="age" name="age" required>
        </div>
 
-       <div class="remember">
-        <label for=""> <input type="checkbox">Запомнить меня</label>
+       <div class="input-box">
+        <input type="text" placeholder="Административный округ" id="user_district" name="user_district" required>
        </div>
+
         <button type="submit" class="btn subbtn">Зарегистрироваться</button>
       </form>
       
       <p>Уже есть аккаунт? <a href="#" class="buttons EntrBut open-popup" data-popup="popupEntr" id="PopUpEntr">Войти</a></p>
       
- 
     </div>
   </div>
 
+
+
+
   <div class="popup" id="popupEntr">
-    <div class="popup-content">
+    <div class="popup-content Log">
       <span class="close">&times;</span>
       <h1>Вход</h1>
-      <form action="/login" method="post">
+      <form id="loginForm">
 
         <div class="input-box">
-        <input type="text" placeholder="Имя пользователя" id="username" name="username" required>
+          <input type="text" placeholder="Имя пользователя" id="name" name="name" required>
         <i class='bx bx-user'></i>
         </div>
+
         <div class="input-box">
-        <input type="password" placeholder="Пароль" id="password" name="password" required>
+          <input type="password" placeholder="Пароль" id="password" name="password" required>
         <i class='bx bx-lock-alt' ></i>
         </div>
-        <div class="remember">
-          <label for=""> <input type="checkbox">Запомнить меня</label>
-          <a href="#">Забыли пароль?</a>
-        </div>
+
         <button type="submit" class="btn entrbtn">Войти</button>
       </form>
     </div>
   </div>
 
-  <div class="popup" id="popupK">
-    <div class="popup-content">
-      <span class="close">&times;</span>
-      <h2>Корзина</h2>
-      <div id="cart-items">
-        <!-- Здесь будут отображаться элементы корзины -->
-    </div>
-    <button id="checkout">Оформить заказ</button>
-    </div>
-  </div>
 
   <div class="right-side-home">
     <div class="girl-photo">
@@ -480,6 +490,62 @@ function closePopup(id) {
   }
 }
 
+
+// форма регистрации
+document.getElementById('registration-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const surname = document.getElementById('surname').value;
+        const middlename = document.getElementById('middlename').value;
+        const mail = document.getElementById('mail').value;
+        const password = document.getElementById('password').value;
+        const male = document.getElementById('male').value;
+        const age = document.getElementById('age').value;
+        const user_district = document.getElementById('user_district').value;
+
+        fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, surname, middlename, mail, password, male, age, user_district}),
+        })
+        .then(response => response.text())
+        .then(data => alert(data))
+        .catch((error) => alert('Ошибка: ' + error));
+    });
+
+// Форма входа
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+    // Получаем значения полей формы
+    const name = document.getElementById('name').value;
+    const password = document.getElementById('password').value;
+
+    // Отправляем запрос на сервер для проверки учетных данных
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, password })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Ошибка ');
+        }
+        return response.text();
+    })
+    .then(data => {
+        alert(data); // Выводим сообщение об успешном входе
+        // Здесь можно редиректить пользователя на другую страницу после успешного входа
+    })
+    .catch(error => {
+        alert('Ошибка ');
+    });
+});
 </script>
 
 </body>

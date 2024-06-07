@@ -23,27 +23,33 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/main/:page', (req, res) => {
-       const page = req.params.page;
-       res.sendFile(path.join(__dirname, '../frontend/main-pages-html/${page}.html'));
-   });
+//app.get('/main/:page', (req, res) => {
+//       const page = req.params.page;
+//       res.sendFile(path.join(__dirname, '../frontend/${page}.html'));
+//   });
 
 
- app.get('/shop/:page', (req, res) => {
-       const page = req.params.page;
-       res.sendFile(path.join(__dirname, '../frontend/shop-elements-html/${page}.html'));
-   });
+// app.get('/shop/:page', (req, res) => {
+//       const page = req.params.page;
+//       res.sendFile(path.join(__dirname, '../frontend/shop-elements-html/${page}.html'));
+//   });
 
 
- app.get('/sub/:page', (req, res) => {
-       const page = req.params.page;
-       res.sendFile(path.join(__dirname, '../frontend/sub-pages-html/${page}.html'));
-   });
+// app.get('/sub/:page', (req, res) => {
+//       const page = req.params.page;
+//       res.sendFile(path.join(__dirname, '../frontend/sub-pages-html/${page}.html'));
+//   });
 
 
 app.post('/register', async (req, res) => {
-    const username = req.body.username;
+    const name = req.body.name;
+    const surname = req.body.surname;
+    const middlename = req.body.middlename;
+    const mail = req.body.mail;
     const password = req.body.password;
+    const male = req.body.male;
+    const age = req.body.age;
+    const user_district = req.body.user_district;
 
     try {
         const mongoClient = new MongoClient(url);
@@ -56,14 +62,20 @@ app.post('/register', async (req, res) => {
 
         // Создание нового документа пользователя
         const user = {
-            username: username,
-            password: hashedPassword
+            name: name,
+            surname: surname,
+            middlename: middlename,
+            mail: mail,
+            password: hashedPassword,
+            male: male,
+            age: age,
+            user_district: user_district
         };
 
         // Вставка документа пользователя в коллекцию
         const result = await collection.insertOne(user);
-        console.log(`Пользователь ${username} зарегистрирован с id: ${result.insertedId}`);
-        res.status(200).send(`Пользователь ${username} зарегистрирован`);
+        console.log(`Пользователь ${name} зарегистрирован с id: ${result.insertedId}`);
+        res.status(200).send(`Пользователь ${name} зарегистрирован`);
 
     } catch (err) {
         console.log(err);
@@ -74,8 +86,9 @@ app.post('/register', async (req, res) => {
 
 
 app.post('/login', async (req, res) => {
-    const username = req.body.username;
+    const name = req.body.name;
     const password = req.body.password;
+    
     
     try {
         const mongoClient = new MongoClient(url);
@@ -84,7 +97,7 @@ app.post('/login', async (req, res) => {
         const collection = db.collection("users");
 
         // Поиск пользователя по имени пользователя
-        const user = await collection.findOne({ username: username });
+        const user = await collection.findOne({ name: name });
 
         if (!user) {
             return res.status(401).send('Неверное имя пользователя или пароль');
@@ -106,7 +119,7 @@ app.post('/login', async (req, res) => {
     }
 });
 
-const port = 3000;
+const port = 3010;
 app.listen(port, () => {
     console.log(`Сервер запущен на порту ${port}`);
 });

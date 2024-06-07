@@ -251,15 +251,15 @@ body {
     flex-wrap: wrap-reverse;
   }
 
-    .newstit{
-      display: flex;
+  .newstit{
+    display: flex;
     width: 50%;
     justify-content: center;
     font-family: "PT Sans Narrow", sans-serif;
     font-size: 20px;
     color: #E7DBCB;
     padding: 40px 10px;
-    }
+  }
   /* Хиты продаж */
 
   .best-sellers-container{
@@ -394,15 +394,23 @@ body {
 }
 
 /* Контент внутри попапа */
-.popup-content {
+
+.popup-content{
   font-family: "PT Sans Narrow", sans-serif;
   background-color: #E7DBCB;
-  margin: 15% auto;
   padding: 20px;
   width: 25vw;
-  height: 45vh;
   border: 2px solid #5D001E;
   border-radius: 20px;
+}
+.Reg {
+  margin: 5% auto;
+  height: 80vh;
+}
+
+.Log {
+  margin: 15% auto;
+  height: 35vh;
 }
 
 .popup-content h1{
@@ -439,13 +447,6 @@ body {
   font-size: x-large;
 }
 
-.remember{
-  font-size: large;
-}
-
-.remember label{
-  accent-color: #5D001E;
-}
 
 .btn{
   width: 100%;
