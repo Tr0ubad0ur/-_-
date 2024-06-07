@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "66634cead9d3ab4f36779b13"
+  },
+  "name": "testname",
+  "surname": "testsurname",
+  "middlename": "testmiddlename",
+  "mail": "mail",
+  "password": "$2b$10$sK7B.N1CyDY2sjoPAEDjcOiawBkF2KpuTZhz086a3r7GasKY4a0VK",
+  "male": "M",
+  "age": "20",
+  "user_district": "СВАО"
+}]

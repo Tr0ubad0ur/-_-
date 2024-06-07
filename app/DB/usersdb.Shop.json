@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e269"
+  },
+  "shop_district": "СВАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e26a"
+  },
+  "shop_district": "САО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e26b"
+  },
+  "shop_district": "ЦАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e26c"
+  },
+  "shop_district": "ВАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e26d"
+  },
+  "shop_district": "ЮВАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e26e"
+  },
+  "shop_district": "ЮАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e26f"
+  },
+  "shop_district": "ЮЗАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e270"
+  },
+  "shop_district": "ЗАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e271"
+  },
+  "shop_district": "СЗАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e272"
+  },
+  "shop_district": "ЗелАО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e273"
+  },
+  "shop_district": "НОВОМОСКОВСКИЙ АО"
+},
+{
+  "_id": {
+    "$oid": "666205cfa133187f2ab8e274"
+  },
+  "shop_district": "ТРОИЦКИЙ АО"
+}]
