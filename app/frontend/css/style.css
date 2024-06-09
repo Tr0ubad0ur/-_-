@@ -2,7 +2,7 @@ body {
     display: flex;
     perspective: 1000px;
     /*border: 1px solid #ffffff;*/
-    height: 400vh;
+    height: 346vh;
     margin: 0;
     justify-content: center;
     align-items: center;
@@ -66,7 +66,46 @@ body {
   .button:hover::before {
     left: 0; /* Сдвигаем фоновый элемент вправо */
   }
+   
+  /* Хэдер кнопок */
   
+  header{
+    position: fixed;
+    top: 0;
+    left: 5%;
+    width: 90%;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .but-menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+    z-index: 1000 ;
+  }
+
+
+  .bttn{
+    
+    width: 9%;
+    height: 50px;
+    border: none;
+    background: #5D001E;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(0, 0, 0, .1);
+    color: #E7DBCB;
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 14px;
+    
+    font-weight: 600;
+  }
+
+
   .left-side-home {
     background-color: #E7DBCB; /* Цвет слева */
     width: 65vw;
@@ -134,9 +173,8 @@ body {
     display: flex;
     flex-direction: column;
     width: 90vw;
-    height: 400vh;
+    height: 329vh;
     box-shadow: 0 0 80px rgba(0, 0, 0, 1);
-    margin-top: 5%;
   }
 
   .home-container{
@@ -299,14 +337,14 @@ body {
   
   .bestlist {
     padding: 0px 15px;
-      display: grid;
-      gap: 60px;
-      margin-left: -185px;
-      justify-content:center;
-      grid-template-columns: repeat(4, 220px);
-      grid-template-rows: repeat(1, 320px);
-      grid-template-areas:
-      "XXXX XXXX XXXX XXXX"
+    display: grid;
+    gap: 60px;
+    margin-left: 110px;
+    justify-content: center;
+    grid-template-columns: repeat(3, 220px);
+    grid-template-rows: repeat(1, 320px);
+    grid-template-areas:
+      "XXX XXX XXX"
       ;
   }
     .list.prod1{
@@ -505,14 +543,121 @@ body {
     z-index: 3;
   }
 
-.shop-title {
-  display: flex;
-  justify-content: center;
-  font-family: "PT Sans Narrow", sans-serif;
-  font-size: 44px;
-  color: #5D001E;
-  padding: 10px 0px;
+  .shop-up {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0px 40px; 
+  }
+  
+  .shop-title {
+    font-family: "PT Sans Narrow", sans-serif;
+    font-size: 64px;
+    color: #5D001E;
+    padding: 0px 0px;
+    margin-left: 110px;
+    flex-grow: 1; 
+    text-align: center; 
+  }
+  
+
+
+/* Поп-ап фильтра жанров */
+
+.popup-content h2 {
+  font-size: 24px; 
+  color: #5D001E; 
+  margin-bottom: 10px; 
+  text-align: left; 
 }
+
+#search-input {
+  width: 90%; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  border: 2px solid #5D001E;
+  border-radius: 5px; 
+  
+  font-size: 16px; 
+  color: #5D001E; 
+}
+
+#search-input::placeholder {
+  color: #5D001E; /* Цвет текста в плейсхолдере */
+  font-family: "PT Sans Narrow", sans-serif;
+}
+
+#music-style {
+  width: 94%; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  border: 2px solid #5D001E; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  font-family: "PT Sans Narrow", sans-serif;
+  color: #5D001E; 
+ 
+  background-image: url('path/to/your/arrow-image.png'); 
+  background-repeat: no-repeat; 
+  background-position: right center; 
+  background-size: 16px; 
+}
+
+#music-style option {
+  color: #5D001E; 
+}
+
+#search-button {
+  width: 15%; 
+  padding: 10px;
+  border: none; 
+  border-radius: 20px; 
+  background-color: #5D001E; 
+  color:#E7DBCB; 
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+#search-button:hover {
+  background-color: #E7DBCB; 
+  color: #5D001E; 
+}
+
+.popup-content {
+  background-color: #E7DBCB;
+  margin: 15% auto;
+  padding: 20px;
+  border: 2px solid #5D001E;
+  width: 100%;
+  max-width: 600px;
+}
+
+.zhantr{
+height: 5%;
+}
+
+.close-popup {
+  color: #5D001E;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.search-input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 2px solid #5D001E;
+}
+
 
 .shop-container {
   display: grid;

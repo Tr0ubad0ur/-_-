@@ -11,9 +11,39 @@
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
+<body id="main">
   
-<div class="full-container">
+<div  class="full-container">
+  <header>
+    <div class="but-menu">
+      <button type="menu" class="bttn zhanr">Поиск по жанру</button>
+      <button type="menu" class="bttn prodazh">Топ продаж</button>
+      <button type="menu" class="bttn ispoln">Топ исполнитель</button>
+      <button type="menu" class="bttn nalichie">Нет в наличии</button>
+      <button type="menu" class="bttn stats">Статистика</button>
+      <button type="menu" class="bttn raznitsa">Разница</button>
+      <button type="menu" class="bttn offers">Предложения</button>
+      <button type="menu" class="bttn posts">О записях</button>
+      <button type="menu" class="bttn shops">О магазинах</button>
+      
+    </div>
+  </header>
+
+  <div id="search-popup" class="popup">
+    <div class="popup-content zhantr">
+        <span class="close-popup">&times;</span>
+        <h2>Поиск музыки</h2>
+        <select id="music-style">
+            <option value="">Выберите стиль музыки</option>
+            <option value="rock">Рок</option>
+            <option value="pop">Поп</option>
+            <option value="jazz">Джаз</option>
+            <option value="classic">Классика</option>
+        </select>
+        <button id="search-button">Поиск</button>
+    </div>
+ </div>
+
   <div class="home-container">
 
   
@@ -24,7 +54,7 @@
     </div>
 
     <div class="button-more">
-      <a href="#" class="buttons button">Больше пластинок</a>
+      <a href="#shop" class="buttons button">Больше пластинок</a>
     </div>
   </div>
 
@@ -34,10 +64,10 @@
     <img src="Photos/pngwing.com__2_-removebg-preview.png">
     <ul class="nav">
       <li><a href="#" class="buttons RegBut open-popup" data-popup="popupR" id="PopUpReg">Регистрация</a></li>
-      <li><a href="#"class="buttons HitBut" >Хиты продаж</a></li>
-      <li><a href="#" class="buttons NewBut" >Новинки</a></li>
-      <li><a href="#"class="buttons ShopBut" >Магазин</a></li>
-      <li><a href="#"class="buttons AboutBut" >О нас</a></li>
+      <li><a href="#news" class="buttons NewBut" >Новинки</a></li>
+      <li><a href="#best-sellers" class="buttons HitBut" >Хиты продаж</a></li>
+      <li><a href="#shop"class="buttons ShopBut" >Магазин</a></li>
+      <li><a href="#about"class="buttons AboutBut" >О нас</a></li>
     </ul>
   </div>
 
@@ -127,7 +157,7 @@
   </div>
  </div>
 
-<div class="news-container">
+<div id="news" class="news-container">
   <div class="left-side-news">
     <div class="newstit">Пластинки, НОВИНКИ</div>
   </div>
@@ -159,32 +189,11 @@
 </div>
 
 
- <div class="best-sellers-container">
+ <div id="best-sellers" class="best-sellers-container">
 
   <div class="left-side-best-sellers"> 
   <div class="bestlist">
      <!--1ая карточка-->
-
- <div class="list prod1">
-  <div class="list__top">
-    <a href="<...>" class="list__img">
-      <img src="Photos/logo.png" alt="">
-      </a>
-  </div>
-    <div class="list__bottom">
-      <div class="card__infol">
-          <!-- Контент названия -->
-          <div class="list__infol-name">Believer</div>
-          <div class="list__infol-song">Imagine Dragons</div>
-      </div>
-      <div class="list__infor">
-          <!-- Контент цены -->
-          <div class="list__infor-price">1 499</div>
-      </div>
-    </div>
-</div>
-
-   <!--2ая карточка-->
 
  <div class="list prod2">
   <div class="list__top">
@@ -205,7 +214,7 @@
     </div>
 </div>
 
-   <!--3ая карточка-->
+   <!--2ая карточка-->
 
  <div class="list prod3">
   <div class="list__top">
@@ -226,7 +235,7 @@
     </div>
 </div>
 
-   <!--4ая карточка-->
+   <!--3ая карточка-->
 
  <div class="list prod4">
   <div class="list__top">
@@ -252,18 +261,18 @@
 
   <div class="right-side-best-sellers">
     <div class="besttit">Пластинки, ХИТЫ</div>
-    <div class="btn_bestslayder">
-      <button id="bpast"><img src="Photos/bназад.png" alt="Previous"></button>
-      <button id="bnext"><img src="Photos/bвперед.png" alt="Previous"></button>
-  </div>
   </div>
  </div>
 
   <!--Каталог магазина-->
-<div class="shop">
+<div id="shop" class="shop">
+    <div class="shop-up">
     <div class="shop-title">Наш магазин</div>
+    </div>
+    
+    
 
- <div class="shop-container">
+ <div  class="shop-container">
 
  <!--1ая карточка-->
 
@@ -391,18 +400,12 @@
     </div>
 </div>
 </div>
-<!--Кнопки слайда-->
-
-    <div class="btn_slayder">
-        <button id="past"><img src="Photos/назад.png" alt="Previous"></button>
-        <button id="next"><img src="Photos/некст.png" alt="Previous"></button>
-    </div>
 </div>
 
 
 <!--Подвал сайта-->
 <footer>
-  <div class="footer-container">
+  <div id="about" class="footer-container">
     <div class="footer-section">
       <h3>О нас</h3>
       <p>Адрес: г. Москва, ул. Проспект Вернадского, д. 78</p>
@@ -419,11 +422,10 @@
     <div class="footer-section">
       <h3>Навигация</h3>
       <ul>
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">Хиты продаж</a></li>
-        <li><a href="#">Новинки</a></li>
-        <li><a href="#">Магазин</a></li>
-        <li><a href="#">Корзина</a></li>
+        <li><a href="#main" class="scroll-link" data-target="main">Главная</a></li>
+        <li><a href="#news" class="scroll-link" data-target="news">Новинки</a></li>
+        <li><a href="#best-sellers" class="scroll-link" data-target="best-sellers">Хиты продаж</a></li>
+        <li><a href="#shop" class="scroll-link" data-target="shop">Магазин</a></li>
       </ul>
     </div>
     <div class="footer-section">
@@ -544,6 +546,70 @@ document.getElementById('registration-form').addEventListener('submit', function
     })
     .catch(error => {
         alert('Ошибка ');
+    });
+});
+
+// Поп-ап для фильтров
+
+document.querySelector('.zhanr').addEventListener('click', function() {
+    var popup = document.getElementById('search-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('search-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('search-popup')) {
+        document.getElementById('search-popup').style.display = 'none';
+    }
+};
+
+document.getElementById('search-button').addEventListener('click', function() {
+    const searchTerm = document.getElementById('search-input').value;
+    const musicStyle = document.getElementById('music-style').value;
+
+    if (searchTerm && musicStyle) {
+        alert(`Выполняется поиск по запросу: "${searchTerm}" в стиле: "${musicStyle}"`);
+    } else {
+        alert('Пожалуйста, заполните все поля');
+    }
+});
+
+
+
+// Скролл
+document.querySelector('.HitBut').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('best-sellers').scrollIntoView({ behavior: 'smooth' });
+});
+document.querySelector('.NewBut').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('news').scrollIntoView({ behavior: 'smooth' });
+});
+document.querySelector('.ShopBut').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+});
+document.querySelector('.AboutBut').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+});
+document.querySelector('.button').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+});
+
+document.querySelectorAll('.scroll-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetId = this.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
     });
 });
 </script>
