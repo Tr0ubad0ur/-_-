@@ -28,11 +28,11 @@
       
     </div>
   </header>
-
+  <!--Жанры-->
   <div id="search-popup" class="popup">
-    <div class="popup-content zhantr">
+    <div class="popup-contentt  zhantr">
         <span class="close-popup">&times;</span>
-        <h2>Поиск музыки</h2>
+        <h2>Поиск музыки по жанру</h2>
         <select id="music-style">
             <option value="">Выберите стиль музыки</option>
             <option value="rock">Рок</option>
@@ -42,7 +42,150 @@
         </select>
         <button id="search-button">Поиск</button>
     </div>
- </div>
+  </div>
+
+      <!--Топ продаж-->
+      <div id="prodazhi-popup" class="popup">
+        <div class="popup-contentt prodazhi">
+            <span class="close-popup">&times;</span>
+            <h2>Топ продаж</h2>
+            <div class="texttop"></div>
+        </div>
+      </div>
+
+      <!--Топ исполнителей-->
+      <div id="isp-popup" class="popup">
+        <div class="popup-contentt isp">
+            <span class="close-popup">&times;</span>
+            <h2>Топ исполнитель</h2>
+            <div class="textisp"></div>
+        </div>
+      </div>
+
+      <!--Нет в наличии-->
+      <div id="nal-popup" class="popup">
+        <div class="popup-contentt nal">
+            <span class="close-popup">&times;</span>
+            <h2>Пластинки, которых нет в наличии</h2>
+            <div class="textnal"></div>
+        </div>
+      </div>
+
+       <!--Статистика-->
+       <div id="stat-popup" class="popup">
+        <div class="popup-contentt stat">
+            <span class="close-popup">&times;</span>
+            <h2>Статистика</h2>
+            <div class="textstat"></div>
+        </div>
+      </div>
+
+       <!--Разница-->
+       <div id="raznitsa-popup" class="popup">
+        <div class="popup-contentt raznitsaa">
+            <span class="close-popup">&times;</span>
+            <h2>Разница</h2>
+            <div class="textrazn"></div>
+        </div>
+      </div>
+
+      <!--Предложения-->
+      <div id="offers-popup" class="popup">
+        <div class="popup-contentt offerss">
+          <span class="close">&times;</span>
+          <h1>Добавить пластинку</h1>
+          <form id="reduction-form">
+    
+           <div class="input-box">
+            <input type="text" placeholder="Название пластинки" id="name" name="name" required>
+           </div>
+    
+           <div class="input-box">
+            <input type="text" placeholder="Жанр" id="genre" name="genre" required>
+           </div>
+    
+           <div class="input-box">
+            <input type="text" placeholder="Группа" id="performer" name="performer" required>
+           </div>
+    
+           <div class="input-box">
+            <input type="text" placeholder="Год выпуска" id="year" name="year" required>
+           </div>
+    
+            <div class="input-box">
+            <input type="text" placeholder="Лейбл" id="company" name="company" required>
+           </div>
+    
+           <div class="input-box">
+            <input type="text" placeholder="Вид носителя" id="type_of_media" name="type_of_media" required>
+           </div>
+            
+           <div class="input-box">
+            <input type="text" placeholder="Цена" id="price" name="price" required>
+           </div>
+    
+           <div class="input-box">
+            <input type="text" placeholder="Оптовая цена" id="opt_price" name="opt_price" required>
+           </div>
+    
+           <div class="input-box">
+            <input type="text" placeholder="Количество" id="NumberOfSales" name="NumberOfSales" required>
+           </div>
+            
+           <div class="input-box">
+            <input type="text" placeholder="Район магазина" id="shop_district" name="shop_district" required>
+           </div>
+    
+           <select id="availability" class="avail">
+            <option value="">Выберите состояние продукта</option>
+            <option value="yes">В наличии</option>
+            <option value="no">Нет в наличии</option>
+           </select>
+
+            <button type="submit" class="btn subbtn">Отправить</button>
+            <p>Хотите удалить пластинку? <a href="#" class="buttons EntrBut open-popup" data-popup="PopUpDel" id="EntrBut">Форма удаления</a></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Форма удаления поп-ап -->
+
+      <div id="delete-popup" class="popup">
+          <div class="popup-contentt deletee">
+            <span class="close">&times;</span>
+            <h1>Удалить пластинку</h1>
+            <form id="reduction-form">
+      
+             <div class="input-box">
+              <input type="text" placeholder="Название пластинки" id="name" name="name" required>
+             </div>    
+             <div class="input-box">
+              <input type="text" placeholder="Группа" id="performer" name="performer" required>
+             </div>
+              <button type="submit" class="btn subbtn">Удалить</button>
+             
+            </form>
+          </div>
+        </div>
+
+
+      <!--О записях-->
+      <div id="about-popup" class="popup">
+        <div class="popup-contentt aboutt">
+            <span class="close-popup">&times;</span>
+            <h2>О записях</h2>
+            <div class="textabout"></div>
+        </div>
+      </div> 
+
+        <!--О магазинах-->
+        <div id="magaz-popup" class="popup">
+          <div class="popup-contentt magazz">
+              <span class="close-popup">&times;</span>
+              <h2>О магазинах</h2>
+              <div class="textmagaz"></div>
+          </div>
+        </div>
 
   <div class="home-container">
 
@@ -561,12 +704,6 @@ document.querySelector('.close-popup').addEventListener('click', function() {
     popup.style.display = 'none'; // Скрываем pop-up
 });
 
-window.onclick = function(event) {
-    if (event.target == document.getElementById('search-popup')) {
-        document.getElementById('search-popup').style.display = 'none';
-    }
-};
-
 document.getElementById('search-button').addEventListener('click', function() {
     const searchTerm = document.getElementById('search-input').value;
     const musicStyle = document.getElementById('music-style').value;
@@ -578,7 +715,121 @@ document.getElementById('search-button').addEventListener('click', function() {
     }
 });
 
+// Топ продаж поп-ап
 
+document.querySelector('.prodazh').addEventListener('click', function() {
+    var popup = document.getElementById('prodazhi-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('prodazhi-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// Топ исполнителей поп-ап
+
+document.querySelector('.ispoln').addEventListener('click', function() {
+    var popup = document.getElementById('isp-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('isp-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// Нет в наличии поп-ап
+
+document.querySelector('.nalichie').addEventListener('click', function() {
+    var popup = document.getElementById('nal-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('nal-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// Статистика поп-ап
+
+document.querySelector('.stats').addEventListener('click', function() {
+    var popup = document.getElementById('stat-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('stat-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// Разница поп-ап
+
+document.querySelector('.raznitsa').addEventListener('click', function() {
+    var popup = document.getElementById('raznitsa-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('raznitsa-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// Предложения поп-ап
+
+document.querySelector('.offers').addEventListener('click', function() {
+    var popup = document.getElementById('offers-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('offers-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// Об удалении поп-ап
+
+document.querySelector('.EntrBut').addEventListener('click', function() {
+    var popup = document.getElementById('delete-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('delete-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// О записях поп-ап
+
+document.querySelector('.posts').addEventListener('click', function() {
+    var popup = document.getElementById('about-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('about-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// О магазинах поп-ап
+
+document.querySelector('.shops').addEventListener('click', function() {
+    var popup = document.getElementById('magaz-popup');
+    popup.style.display = 'flex'; // Показываем pop-up
+});
+
+document.querySelector('.close-popup').addEventListener('click', function() {
+    var popup = document.getElementById('magaz-popup');
+    popup.style.display = 'none'; // Скрываем pop-up
+});
+
+// Общий обработчик для закрытия попапов
+
+window.onclick = function(event) {
+    if (event.target.classList.contains('popup')) {
+        event.target.style.display = 'none';
+    }
+};
 
 // Скролл
 document.querySelector('.HitBut').addEventListener('click', function(event) {

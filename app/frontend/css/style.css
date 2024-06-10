@@ -405,7 +405,7 @@ body {
     width: 64px;
     height: 64px;
     position: absolute;
-    top: 47vh;
+    top: 50vh;
     right: 32.5vw;
     z-index: 3;
   }
@@ -436,30 +436,31 @@ body {
 .popup-content{
   font-family: "PT Sans Narrow", sans-serif;
   background-color: #E7DBCB;
-  padding: 20px;
-  width: 25vw;
+  padding: 5px 20px 20px 20px;
+  width: 35vw;
   border: 2px solid #5D001E;
   border-radius: 20px;
 }
 .Reg {
-  margin: 5% auto;
+  margin: 7% auto;
   height: 80vh;
 }
 
 .Log {
   margin: 15% auto;
-  height: 35vh;
+  height: 30vh;
 }
 
 .popup-content h1{
   text-align: center;
+  color: #5D001E;
 }
 
 .popup-content .input-box{
   width: 100%;
   height: 50px;
   position: relative;
-  margin: 20px 0;
+  margin: 20px 0px 10px 0px;
 }
 
 .input-box input{
@@ -487,7 +488,7 @@ body {
 
 
 .btn{
-  width: 100%;
+  width: 102.5%;
   height: 50px;
   border: none;
   background: #5D001E;
@@ -515,7 +516,7 @@ body {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #5D001E;
   text-decoration: none;
   cursor: pointer;
 }
@@ -592,6 +593,7 @@ body {
   padding: 10px; 
   margin-bottom: 10px; 
   border: 2px solid #5D001E; 
+  background-color: #E7DBCB;
   border-radius: 5px; 
   font-size: 16px; 
   font-family: "PT Sans Narrow", sans-serif;
@@ -624,17 +626,113 @@ body {
   color: #5D001E; 
 }
 
-.popup-content {
+.popup-contentt {
   background-color: #E7DBCB;
-  margin: 15% auto;
+  margin: 4% auto;
   padding: 20px;
   border: 2px solid #5D001E;
   width: 100%;
   max-width: 600px;
+  font-family: "PT Sans Narrow", sans-serif;
+  border-radius: 20px;
+}
+
+.popup-contentt{
+  font-family: "PT Sans Narrow", sans-serif;
+  background-color: #E7DBCB;
+  padding: 5px 20px 20px 20px;
+  width: 35vw;
+  border: 2px solid #5D001E;
+  border-radius: 20px;
+}
+.popup-contentt h1{
+  text-align: center;
+  color: #5D001E;
+}
+
+.popup-contentt .input-box{
+  width: 100%;
+  height: 40px;
+  position: relative;
+  margin: 20px 0px 10px 0px;
+}
+
+
+.textpp{
+  font-family: "PT Sans Narrow", sans-serif;
+  color: #5D001E; 
 }
 
 .zhantr{
-height: 5%;
+height: 18vh;
+color: #5D001E;
+}
+
+.prodazhi {
+  height: 18vh;
+  color: #5D001E; 
+}
+
+.isp {
+  height: 18vh;
+  color: #5D001E; 
+}
+
+.nal {
+  height: 18vh;
+  color: #5D001E; 
+}
+
+.stat {
+  height: 18vh;
+  color: #5D001E; 
+}
+
+.raznitsaa {
+  height: 18vh;
+  color: #5D001E; 
+}
+
+.offerss {
+  height: 26%;
+}
+
+.offerss h1{
+  font-family: "PT Sans Narrow", sans-serif;
+  color: #5D001E; 
+}
+
+.avail{
+  border-radius: 20px;
+  background-color: #E7DBCB;
+  color: #5D001E; 
+  width: 102.5%;
+  height: 50px;
+  position: relative;
+  margin: 10px 0;
+  border-color: #5D001E;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 16px;
+}
+
+.aboutt {
+  height: 18vh;
+  color: #5D001E; 
+}
+
+.magazz {
+  height: 18vh;
+  color: #5D001E; 
+}
+
+.popup-contentt p{
+  color: #5D001E;
+  padding-left: 5px;
+}
+
+.deletee {
+  margin-top: 17%;
+  height: 8%;
 }
 
 .close-popup {
