@@ -292,10 +292,12 @@ body {
 
   .newstit{
     display: flex;
-    width: 50%;
+    margin-left: 40px;
+    margin-top: 100px;
+    width: 90%;
     justify-content: center;
     font-family: "PT Sans Narrow", sans-serif;
-    font-size: 20px;
+    font-size: 52px;
     color: #E7DBCB;
     padding: 40px 10px;
   }
@@ -327,11 +329,13 @@ body {
 
   .besttit {
     display: flex;
-    width: 100%;
+    width: 90%;
     height: 50%;
     justify-content: center;
+    margin-left: 30px;
+    margin-top: 90px;
     font-family: "PT Sans Narrow", sans-serif;
-    font-size: 20px;
+    font-size: 28px;
     color: #E7DBCB;
     padding: 20px 0px;
   }
