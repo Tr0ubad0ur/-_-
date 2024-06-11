@@ -21,7 +21,131 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/home.html'));
 });
 
+// 1. Получение перечня всех записей заданного жанра
+app.get('/records/genre/:genre', (req, res) => {
+    let genre = req.params.genre;
+    let sql = `SELECT * FROM Record WHERE genre = ?`;
+    db.query(sql, [genre], (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
 
+// 2. Получение списка самых продаваемых записей
+app.get('/records/top', (req, res) => {
+    let sql = `SELECT * FROM Record ORDER BY NumberOfSales DESC LIMIT 10`;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+// 3. Исполнитель самых продаваемых произведений
+app.get('/records/top-artist', (req, res) => {
+    let sql = `
+        SELECT performer, SUM(NumberOfSales) AS ALLSALES
+        FROM Record
+        GROUP BY performer
+        ORDER BY ALLSALES DESC
+        LIMIT 1
+    `;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+// 4. Перечень отсутствующих в магазине записей
+app.get('/records/unavailable', (req, res) => {
+    let sql = `SELECT * FROM Record WHERE availability = 'Нет'`;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+// 5. Стоимость всех проданных записей
+app.get('/records/total-cost', (req, res) => {
+    let sql = `SELECT SUM(price * NumberOfSales) AS ALLSALES FROM Record`;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+// 6. Запись с максимальной разницей между розничной и оптовой ценой
+app.get('/records/max-difference', (req, res) => {
+    let sql = `
+        SELECT *, (price - opt_price) AS DIFF
+        FROM Record
+        ORDER BY DIFF DESC
+        LIMIT 1
+    `;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+app.post('/records', (req, res) => {
+    let newRecord = req.body;
+    let sql = 'INSERT INTO Record SET ?';
+    db.query(sql, newRecord, (err, result) => {
+        if (err) throw err;
+        res.json({ message: 'Record added', id: result.insertId });
+    });
+});
+
+// Deleting a record
+app.delete('/records/:id', (req, res) => {
+    let id = req.params.id;
+    let sql = `DELETE FROM Record WHERE ID = ?`;
+    db.query(sql, [id], (err, result) => {
+        if (err) throw err;
+        res.json({ message: 'Record deleted' });
+    });
+});
+// Сведения о записях
+app.get('/records', (req, res) => {
+    let sql = `SELECT * FROM Records`;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+// Сведения о произведениях
+app.get('/works', (req, res) => {
+    let sql = `
+        SELECT 
+            z._id, 
+            z.catalog_Id, 
+            z.name, 
+            z.genre, 
+            z.performer, 
+            z.year, 
+            z.company, 
+            z.type_of_media, 
+            z.price, 
+            z.opt_price,
+            z.NumberOfSales, 
+            z.availability,
+        FROM Record z
+    `;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+// Сведения о магазинах
+app.get('/stores', (req, res) => {
+    let sql = `SELECT * FROM Shop`;
+    db.query(sql, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
 
 //app.get('/main/:page', (req, res) => {
 //       const page = req.params.page;
